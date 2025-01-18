@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+quoted
+{% endblock %}
+
+{% block main %}
+<style>
+    .centered-table {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .centered-table table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .centered-table th,
+    .centered-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .centered-table th {
+        background-color: #f2f2f2;
+    }
+
+    /* .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }*/
+    .cash,
+    .grand-total {
+        font-size: 1.2em;
+    }
+</style>
+<div class="container">
+    <div class="cash"><b>Cash:</b> {{ cash_and_total.cash }}</div>
+    <div class="grand-total"><b>Grand Total:</b> {{ cash_and_total.grand_total }}</div>
+</div>
+<div class="section centered-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.symbol }}</td>
+                <td>{{ result.shares }}</td>
+                <td>{{ result.price }}</td>
+                <td>{{ result.total_value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

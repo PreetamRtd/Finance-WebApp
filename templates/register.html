@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block main %}
+<form action="/register" method="post">
+    <h6>Register Account</h6>
+    <div class="mb-3">
+        <input required autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username"
+            placeholder="New Username" type="text">
+    </div>
+    <div class="mb-3">
+        <input required class="form-control mx-auto w-auto" name="password" placeholder="Enter Password" type="password"
+            pattern="^.{8,}$" title="Minimum of 8 characters">
+    </div>
+    <div class="mb-3">
+        <input required class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirm Password"
+            type="password">
+    </div>
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+quoted
+{% endblock %}
+
+{% block main %}
+<style>
+    .centered-table {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .centered-table table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .centered-table th,
+    .centered-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .centered-table th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<div class="section centered-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ results.symbol }}</td>
+                <td>{{ results.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
